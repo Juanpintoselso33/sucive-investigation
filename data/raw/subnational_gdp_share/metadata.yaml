@@ -1,0 +1,42 @@
+dataset:
+  name: participacion_pib_departamental
+  version: 2.0.0
+  created: 2024-03-15
+  domain: economics
+  geographical_scope: uruguay
+  temporal_coverage:
+    start: 2008-01-01
+    end: 2014-12-31
+    frequency: annual
+  variables:
+    - name: departamento
+      type: string
+      description: Nombre del departamento o región
+      categories: 19 departamentos + agregaciones regionales
+    - name: participacion_pib
+      type: float
+      description: Porcentaje de participación en el PIB nacional
+      unit: percentage
+      range: [0.0, 100.0]
+  provenance:
+    source: Observatorio Territorio Uruguay (OPP)
+    methodology: "BCU, INE y otras fuentes oficiales"
+    retrieved: 2024-03-15
+  license: CC-BY-4.0
+  integration:
+    notebook: 1_Procesamiento_Datos.ipynb
+    params_key: PATHS:RAW:participacion_pib
+    transformations:
+      - normalizacion_nombres_departamentos
+      - consolidacion_serie_temporal
+
+estructura_archivo:
+  formato: CSV
+  encoding: utf-8
+  separador: ";"
+  decimal: ","
+  advertencias:
+    - "Archivos individuales por año (2008-2014)"
+    - "Primeras 4 líneas contienen metadatos"
+    - "Valores decimales usan coma como separador"
+    - "Incluye agregaciones regionales (Litoral Norte, Metropolitana, etc.)"

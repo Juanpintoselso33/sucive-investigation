@@ -4,6 +4,7 @@ Orquestador principal actualizado
 import hydra
 from omegaconf import DictConfig
 from src.processors import economic, prices, taxes, fuels, geo, exchange_rates
+from src.estimators import population as pop_estimator
 import os
 
 @hydra.main(config_path="../config", config_name="main", version_base="1.2")
@@ -78,6 +79,46 @@ def process_data(cfg: DictConfig):
     geo.process_shapefile(
         input_dir=os.path.join(cfg.data.raw.base_dir, os.path.dirname(cfg.data.raw.shapefile.file)),
         output_dir=os.path.join(cfg.data.processed.base_dir, "shapefiles")
+    )
+
+    # Sección de estimaciones
+    pop_estimator.project_population(
+        cfg.data.raw.population_census.file,
+        cfg.data.estimated.projected_population.file,
+        cfg.years
+    )   
+    
+    # Procesamiento de participación PIB departamental proyectada
+    economic.project_subnational_gdp_share(
+        cfg.data.processed.subnational_gdp_share.dir,
+        cfg.data.estimated.projected_subnational_gdp_share.file,
+        cfg.years
+    )
+    
+    # Estimar PIB departamental
+    economic.estimate_subnational_gdp(
+        gdp_share_path=cfg.data.estimated.projected_subnational_gdp_share.file,
+        national_gdp_path=cfg.data.processed.gdp.file,
+        output_path=cfg.data.estimated.projected_subnational_gdp.file,
+        years_params=cfg.years
+    )
+    
+    # Estimar datos faltantes de patentes
+    taxes.estimate_missing_vehicle_tax(
+        cfg.data.processed.vehicle_tax.file,
+        cfg.data.estimated.projected_population.file,
+        cfg.data.estimated.estimated_montevideo_vehicle_tax.file,
+        cfg.years,
+        target_dept='Montevideo',
+        treatment_year=2007
+    )
+    
+    # Crear dataset final combinando estimaciones y datos reales
+    taxes.create_final_vehicle_tax(
+        cfg.data.processed.vehicle_tax.file,
+        cfg.data.estimated.estimated_montevideo_vehicle_tax.file,
+        cfg.data.final.vehicle_tax.file,
+        treatment_year=2007
     )
 
     # Devolver la configuración completa para usar en la notebook

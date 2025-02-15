@@ -1,0 +1,38 @@
+title: Tipos de Cambio Históricos Uruguay
+description: Cotizaciones diarias de tipos de cambio del Banco Central del Uruguay
+source:
+  name: Banco Central del Uruguay
+  url: https://www.bcu.gub.uy/Estadisticas-e-Indicadores/Paginas/Cotizaciones.aspx
+  access_date: "2024-03-20"  # Actualizar con la fecha real de descarga
+
+temporal_coverage:
+  start: "2001-10-01"  # Actualizar según el rango real de datos
+  end: "2002-05-03"    # Actualizar según el rango real de datos
+  frequency: daily
+
+spatial_coverage:
+  country: Uruguay
+  administrative_level: National
+
+variables:
+  - name: Fecha
+    description: Fecha de cotización
+    type: date
+    format: DD-MM-YYYY
+  
+  - name: Dólar.USA.Compra
+    description: Tipo de cambio compra dólar estadounidense
+    type: numeric
+    unit: UYU/USD
+  
+  - name: Dólar.USA.Venta
+    description: Tipo de cambio venta dólar estadounidense
+    type: numeric
+    unit: UYU/USD
+
+missing_values:
+  - code: ".."
+    description: Dato no disponible
+
+license: Public Domain
+language: es

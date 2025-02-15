@@ -1,0 +1,18 @@
+dataset:
+  name: Población departamental proyectada
+  temporal_coverage:
+    start: 1990
+    end: 2024
+    frequency: anual
+  unidad: habitantes
+  fuente: INE Uruguay - Proyección propia
+  variables:
+    año: Año de referencia
+    departamento: Nombre del departamento
+    poblacion: Población estimada
+  notas:
+  - Interpolación lineal entre censos 1996-2011-2023
+  - Extrapolación exponencial para años fuera del rango censal
+  - Tasas de crecimiento departamentales aplicadas
+  - 'Año base para proyecciones anteriores: 1996'
+  - 'Año base para proyecciones posteriores: 2023'

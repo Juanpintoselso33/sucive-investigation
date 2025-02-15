@@ -1,0 +1,18 @@
+dataset:
+  name: Proyección de participación (panel FE + reinsertar datos reales)
+  temporal_coverage:
+    start: 1990
+    end: 2024
+    frequency: anual
+  unidad: porcentaje
+  fuente: INE / OPP - Proyección propia
+  methodology:
+    type: Panel data model (Fixed Effects by department)
+    formula: participacion ~ C(departamento) + ratio - 1
+    normalization: la suma de departamentos es 100% por año
+    ratio: poblacion_depto / poblacion_total por año
+    reinsert_real_data: true
+  notas:
+  - Datos reales 2008–2014 se reinsertan antes de normalizar.
+  - Pocos años para participación => R² alto y extrapolación incierta.
+  - Cada departamento tiene un intercepto, y ratio con pendiente común.

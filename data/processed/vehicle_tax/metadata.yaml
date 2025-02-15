@@ -1,0 +1,12 @@
+dataset:
+  name: Recaudación de patentes vehiculares
+  temporal_coverage:
+    start: 1990
+    end: 2024
+    frequency: anual
+  unidad: USD constantes 2020
+  fuente: OPP Uruguay
+  notas:
+  - 'Tipo de cambio 2020: 43.13'
+  - Solo incluye patentes de rodados
+  - Valores deflactados por IPC

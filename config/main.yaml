@@ -18,4 +18,5 @@ paths:
   data_dir: ${paths.root}/data
   raw_dir: ${paths.data_dir}/raw
   processed_dir: ${paths.data_dir}/processed
+  estimated_dir: ${paths.data_dir}/estimated
   final_dir: ${paths.data_dir}/final

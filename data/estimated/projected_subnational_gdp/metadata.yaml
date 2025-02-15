@@ -1,0 +1,18 @@
+dataset:
+  name: PIB departamental estimado
+  temporal_coverage:
+    start: 1990
+    end: 2023
+    frequency: anual
+  unidad: USD constantes 2020
+  fuente: 'Estimación propia basada en:'
+  fuentes_base:
+  - PIB nacional (Banco Mundial)
+  - Participación departamental (OPP + proyección)
+  metodologia:
+    descripcion: Distribución del PIB nacional según participación
+    formula: PIB_depto = (Participación_depto/100) * PIB_nacional
+  notas:
+  - Valores en dólares constantes de 2020
+  - Basado en participación departamental proyectada
+  - Suma departamental puede diferir levemente del total nacional

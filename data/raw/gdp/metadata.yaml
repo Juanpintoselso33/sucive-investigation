@@ -1,0 +1,44 @@
+dataset:
+  name: annual_gdp_by_country
+  version: 1.0.0
+  created: 2024-12-16
+  domain: economics
+  geographical_scope: global
+  temporal_coverage:
+    start: 1960-01-01
+    end: 2023-12-31
+    frequency: annual
+  variables:
+    - name: Country Name
+      type: string
+      description: Full name of the country or region
+    - name: Country Code
+      type: string
+      description: Three-letter ISO country code
+    - name: Indicator Name
+      type: string
+      description: Name of the economic indicator
+      value: "GDP (current US$)"
+    - name: Indicator Code
+      type: string
+      description: World Bank indicator code
+      value: "NY.GDP.MKTP.CD"
+    - name: Year Columns
+      type: float
+      description: Annual GDP values in current US dollars
+      range: [1960, 2023]
+  methodology: "World Bank national accounts data and OECD National Accounts data files"
+  source: "World Development Indicators"
+  retrieved: 2024-12-16
+  license: CC-BY-4.0
+
+estructura_archivo:
+  filas_metadatos: 5
+  formato: CSV
+  encoding: utf-8
+  separador: ","
+  decimal: "."
+  warnings:
+    - "Some countries have missing data for certain years"
+    - "GDP values are in current US dollars"
+    - "Regional aggregates included alongside country data"

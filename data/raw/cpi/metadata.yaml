@@ -1,0 +1,41 @@
+dataset:
+  name: ipc_mensual
+  version: 2.1.0
+  created: 2024-03-15
+  domain: economics
+  geographical_scope: uruguay
+  temporal_coverage:
+    start: 1937-07-31
+    end: 2024-12-31
+    frequency: monthly
+  variables:
+    - name: fecha
+      type: date
+      description: Fecha de referencia (fin de mes)
+      format: YYYY-MM-DD
+    - name: cpi
+      type: float
+      description: Índice de Precios al Consumidor base 2020=100
+      unit: index
+      base_year: 2020
+
+  provenance:
+    source: Econuy
+    retrieval_method: api
+    retrieved: 2024-03-15
+    contact: equipo@econ.uy
+  license: CC-BY-4.0
+  integration:
+    notebook: 1_Procesamiento_Datos.ipynb
+    params_key: PATHS:RAW:ipc
+    expectations: great_expectations/expectations/ipc_baseline.json
+
+estructura_archivo:
+  formato: CSV
+  encoding: utf-8
+  separador: ","
+  decimal: "."
+  advertencias:
+    - "Serie histórica reconstruida (1937-2024)"
+    - "Valores expresados en base 2020=100"
+    - "Incluye ajustes metodológicos 2016 y 2020"

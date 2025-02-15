@@ -1,0 +1,52 @@
+dataset:
+  name: limites_departamentales
+  version: 2.1.0
+  created: 2024-03-15
+  domain: geospatial
+  geographical_scope: uruguay
+  temporal_coverage:
+    reference_date: 2011-12-01
+  variables:
+    - name: Area_km2
+      type: float
+      description: Área del departamento en kilómetros cuadrados
+      unit: km²
+    - name: Sum_perime
+      type: float
+      description: Perímetro del departamento en metros lineales
+      unit: meters
+    - name: Depto
+      type: integer
+      description: Código INE del departamento (1-19)
+    - name: Nombre
+      type: string
+      description: Nombre oficial del departamento
+    - name: Cdepto_iso
+      type: string
+      description: Código ISO 3166-2 para departamentos
+  provenance:
+    source: "Dirección Nacional de Topografía (DNOT) MTOP - INE"
+    methodology: "Datos censales 2011"
+    retrieved: 2024-03-15
+  license: CC-BY-4.0 (con mención obligatoria al INE)
+  integration:
+    notebook: 1_Procesamiento_Datos.ipynb
+    params_key: PATHS:RAW:geospatial
+    transformations:
+      - conversion_proyeccion
+      - normalizacion_atributos
+
+estructura_archivo:
+  formato: Shapefile
+  componentes:
+    - .shp
+    - .shx
+    - .dbf
+    - .sbn
+    - .sbx
+  sistema_referencia: WGS84 UTM 21S
+  encoding: utf-8
+  advertencias:
+    - "Datos corresponden a límites censales 2011"
+    - "Contiene polígonos cerrados con tolerancia de 50.000"
+    - "Validar topología antes de operaciones espaciales"

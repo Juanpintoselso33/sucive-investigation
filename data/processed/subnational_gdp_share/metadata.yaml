@@ -1,0 +1,16 @@
+dataset:
+  name: Participación departamental en PIB
+  temporal_coverage:
+    start: 2008
+    end: 2014
+    frequency: anual
+  unidad: porcentaje
+  fuente: OPP Uruguay
+  variables:
+    departamento: Nombre del departamento
+    año: Año de referencia
+    participacion: Participación en el PIB nacional (%)
+  notas:
+  - Datos consolidados de múltiples archivos anuales
+  - Se excluyeron las agregaciones regionales
+  - Valores expresados en porcentaje del PIB nacional

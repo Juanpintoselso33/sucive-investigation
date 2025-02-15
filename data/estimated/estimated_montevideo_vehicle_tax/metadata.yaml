@@ -1,0 +1,28 @@
+dataset:
+  name: Estimaciones control sintético para Montevideo
+  temporal_coverage:
+    start: 1990
+    end: 2006
+    frequency: anual
+  unidad: USD constantes 2020
+  fuente: Estimación propia
+  metodologia:
+    tipo: Control sintético (ElasticNet)
+    periodo_entrenamiento: 2007-2024
+    periodo_prediccion: 1990-2006
+    covariables:
+    - población departamental
+    donantes_y_pesos:
+      descripcion: Departamentos donantes y sus pesos en el control sintético
+      pesos:
+        Canelones: 1.5489717943841637
+        San Jose: 0.29672343419237057
+        Paysandu: 0.26204446838241524
+        Rivera: 0.18380067371739298
+        Cerro Largo: 0.1331385219379916
+        Rocha: 0.12994292165078397
+        Lavalleja: 0.061943125735332435
+        Durazno: 0.03974198607357148
+        Salto: 0.031123561534926732
+        Treinta y Tres: 0.017057957054814457
+    r2_score: 0.9292030568175914

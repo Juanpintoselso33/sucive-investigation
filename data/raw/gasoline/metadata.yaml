@@ -1,0 +1,122 @@
+dataset:
+  name: gasoline_sales
+  version: 1.2.0
+  created: 2024-03-15
+  domain: transportation
+  geographical_scope: uruguay
+  temporal_coverage:
+    start: 2004-01-31
+    end: 2024-06-30
+    frequency: monthly
+  variables:
+    - name: Name
+      type: date
+      description: Fecha de medición (fin de mes)
+      format: YYYY-MM-DD
+    - name: Total
+      type: float
+      description: Suma nacional de ventas
+      unit: cubic_meters
+    - name: Artigas
+      type: float
+      description: Ventas en departamento de Artigas
+      unit: cubic_meters
+    - name: Canelones_balneario
+      type: float
+      description: Ventas en zona balnearia de Canelones
+      unit: cubic_meters
+    - name: Canelones_resto
+      type: float
+      description: Ventas en interior de Canelones
+      unit: cubic_meters
+    - name: Cerro_Largo
+      type: float
+      description: Ventas en departamento de Cerro Largo
+      unit: cubic_meters
+    - name: Colonia
+      type: float
+      description: Ventas en departamento de Colonia
+      unit: cubic_meters
+    - name: Durazno
+      type: float
+      description: Ventas en departamento de Durazno
+      unit: cubic_meters
+    - name: Flores
+      type: float
+      description: Ventas en departamento de Flores
+      unit: cubic_meters
+    - name: Florida
+      type: float
+      description: Ventas en departamento de Florida
+      unit: cubic_meters
+    - name: Lavalleja
+      type: float
+      description: Ventas en departamento de Lavalleja
+      unit: cubic_meters
+    - name: Maldonado
+      type: float
+      description: Ventas en departamento de Maldonado
+      unit: cubic_meters
+    - name: Montevideo
+      type: float
+      description: Ventas en departamento de Montevideo
+      unit: cubic_meters
+    - name: Paysandú
+      type: float
+      description: Ventas en departamento de Paysandú
+      unit: cubic_meters
+    - name: Río_Negro
+      type: float
+      description: Ventas en departamento de Río Negro
+      unit: cubic_meters
+    - name: Rivera
+      type: float
+      description: Ventas en departamento de Rivera
+      unit: cubic_meters
+    - name: Rocha
+      type: float
+      description: Ventas en departamento de Rocha
+      unit: cubic_meters
+    - name: Salto
+      type: float
+      description: Ventas en departamento de Salto
+      unit: cubic_meters
+    - name: San_José
+      type: float
+      description: Ventas en departamento de San José
+      unit: cubic_meters
+    - name: Soriano
+      type: float
+      description: Ventas en departamento de Soriano
+      unit: cubic_meters
+    - name: Tacuarembó
+      type: float
+      description: Ventas en departamento de Tacuarembó
+      unit: cubic_meters
+    - name: Treinta_y_Tres
+      type: float
+      description: Ventas en departamento de Treinta y Tres
+      unit: cubic_meters
+
+  provenance:
+    source: Econuy
+    retrieval_method: api
+    retrieved: 2024-03-15
+    contact: equipo@econ.uy
+  license: CC-BY-4.0
+  integration:
+    notebook: 1_Procesamiento_Datos.ipynb
+    params_key: PATHS:RAW:gasoil
+    expectations: null
+
+estructura_archivo:
+  filas_metadatos: 10
+  formato: CSV
+  encoding: utf-8
+  separador: ","
+  decimal: "."
+  warnings:
+    - "Primeras 10 filas contienen metadatos en español"
+    - "Nombres de columnas contienen caracteres especiales y espacios"
+    - "Canelones dividido en balneario/resto según categorización OPP"
+    - "Montevideo incluye área metropolitana completa"

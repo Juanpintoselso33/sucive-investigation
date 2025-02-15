@@ -1,0 +1,47 @@
+dataset:
+  name: diesel_sales
+  version: 1.3.0
+  created: 2024-03-15
+  domain: transportation
+  geographical_scope: uruguay
+  temporal_coverage:
+    start: 2004-01-31
+    end: 2024-07-31
+    frequency: monthly
+  variables:
+    - name: fecha
+      type: date
+      description: Fecha de medición (fin de mes)
+      format: YYYY-MM-DD
+    - name: departamentos
+      type: float
+      description: Ventas mensuales por departamento
+      unit: cubic_meters
+      subvariables: 20
+    - name: total_nacional
+      type: float
+      description: Suma nacional de ventas
+      unit: cubic_meters
+  provenance:
+    source: Econuy
+    retrieval_method: api
+    retrieved: 2024-03-15
+    contact: equipo@econ.uy
+  license: CC-BY-4.0
+  integration:
+    notebook: 1_Procesamiento_Datos.ipynb
+    params_key: PATHS:RAW:nafta
+    transformations:
+      - normalizacion_unidades
+      - deflactacion_ipc
+
+estructura_archivo:
+  filas_metadatos: 10
+  formato: CSV
+  encoding: utf-8
+  separador: ","
+  decimal: "."
+  warnings:
+    - "Estructura jerárquica: Canelones dividido en balneario/resto"
+    - "Montevideo incluye área metropolitana"
+    - "Primeras 10 filas contienen metadatos operativos"

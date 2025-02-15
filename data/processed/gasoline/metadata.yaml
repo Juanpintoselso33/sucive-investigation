@@ -1,0 +1,12 @@
+dataset:
+  name: Ventas de nafta
+  temporal_coverage:
+    start: 1990
+    end: 2024
+    frequency: mensual
+  unidad: metros cúbicos
+  fuente: ANCAP
+  notas:
+  - Volúmenes mensuales agregados a nivel anual
+  - Incluye ventas totales en el mercado interno
+  - Datos en metros cúbicos

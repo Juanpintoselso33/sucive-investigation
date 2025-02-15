@@ -37,6 +37,10 @@ raw:
   shapefile:
     dir: uruguay_map
     format: shapefile
+  population_census:
+    file: population_census/population_census.csv
+    format: csv
+    frequency: anual
 
 processed:
   _target_: src.config.DataConfig.ProcessedConfig
@@ -76,3 +80,30 @@ processed:
     format: csv
     frequency: annual
 
+estimated:
+  _target_: src.config.DataConfig.EstimatedConfig
+  base_dir: ${paths.estimated_dir}
+  projected_population:
+    file: projected_population/projected_population.csv
+    format: csv
+    frequency: annual
+  projected_subnational_gdp_share:
+    file: projected_subnational_gdp_share/projected_subnational_gdp_share.csv
+    format: csv
+    frequency: annual
+  projected_subnational_gdp:
+    file: projected_subnational_gdp/projected_subnational_gdp.csv
+    format: csv
+    frequency: annual
+  estimated_montevideo_vehicle_tax:
+    file: estimated_montevideo_vehicle_tax/estimated_montevideo_vehicle_tax.csv
+    format: csv
+    frequency: annual
+
+final:
+  _target_: src.config.DataConfig.FinalConfig
+  base_dir: ${paths.final_dir}
+  vehicle_tax:
+    file: vehicle_tax/vehicle_tax_final.csv
+    format: csv
+    frequency: annual

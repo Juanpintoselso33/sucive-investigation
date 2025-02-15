@@ -1,0 +1,28 @@
+dataset:
+  name: gdp_deflator_usa
+  version: 1.0.0
+  created: 2024-03-15
+  domain: economics
+  geographical_scope: usa
+  temporal_coverage:
+    start: 1947-01-01
+    end: 2024-01-01
+    frequency: quarterly
+  variables:
+    - name: observation_date
+      type: date
+      description: Fecha de observación trimestral
+      format: YYYY-MM-DD
+    - name: GDPDEF
+      type: float
+      description: Índice de deflactor del PIB
+      unit: index
+      base_year: 2012  # Campo adicional específico
+  provenance:
+    source: Federal Reserve Economic Data (FRED)
+    retrieval_method: direct_download
+    retrieved: 2024-03-15
+  license: ODC-PDDL-1.0
+  integration:
+    notebook: 1_Procesamiento_Datos.ipynb
+    params_key: PATHS:RAW:deflactor_usa

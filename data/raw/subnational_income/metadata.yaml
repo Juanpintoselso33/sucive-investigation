@@ -1,0 +1,66 @@
+dataset:
+  name: ingresos_municipales
+  version: 3.1.0
+  created: 2024-03-15
+  domain: public_finance
+  geographical_scope: uruguay
+  temporal_coverage:
+    start: 1989-01-01
+    end: 2023-12-31
+    frequency: annual
+  variables:
+    - name: AÑO
+      type: integer
+      description: Año fiscal
+      range: [1989, 2023]
+    - name: COD.DEPARTAMENTO
+      type: integer
+      description: Código INE del departamento (2-19)
+    - name: DEPARTAMENTO
+      type: string
+      description: Nombre del departamento
+      categories: 19 departamentos
+    - name: ORIGEN
+      type: string
+      description: Procedencia de los fondos
+      categories: [Departamental, Nacional]
+    - name: NATURALEZA
+      type: string
+      description: Clasificación económica
+      categories: [Impuestos, Tasas, Precios, Contribuciones, etc.]
+    - name: RUBRO
+      type: string
+      description: Categoría presupuestal principal
+    - name: SUBRUBRO
+      type: string
+      description: Desagregación del rubro principal
+    - name: ESTIMADO.PRESUPUESTADO
+      type: float
+      description: Monto presupuestado (millones de pesos 2020)
+      unit: M$2020
+    - name: RECAUDADO
+      type: float
+      description: Monto efectivamente recaudado (millones de pesos 2020)
+      unit: M$2020
+  provenance:
+    source: Observatorio Territorio Uruguay (OPP)
+    methodology: "Datos deflactados a pesos constantes 2020 usando IPC"
+    retrieved: 2024-03-15
+  license: CC-BY-4.0
+  integration:
+    notebook: 1_Procesamiento_Datos.ipynb
+    params_key: PATHS:RAW:ingresos_municipales
+    transformations:
+      - normalizacion_departamentos
+      - imputacion_datos_faltantes
+
+estructura_archivo:
+  formato: Excel
+  hojas: 1
+  filas_metadatos: 0
+  encoding: utf-8
+  decimal: ","
+  advertencias:
+    - "Falta datos Montevideo 1989-2006"
+    - "Valores en millones de pesos constantes 2020"
+    - "Algunas celdas contienen 'No Aplica' como valor"
