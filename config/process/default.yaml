@@ -1,0 +1,20 @@
+data_quality:
+  missing_threshold: 0.2
+  outlier_std: 3
+  
+aggregation:
+  temporal: annual
+  spatial: departmental
+
+transformations:
+  gdp:
+    deflate: true
+    base_year: ${params.years.base_year}
+  
+  prices:
+    normalize: true
+    convert_currency: true
+    
+  geo:
+    simplify: true
+    formats: [shp, geojson]

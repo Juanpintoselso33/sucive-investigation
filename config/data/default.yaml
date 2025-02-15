@@ -1,0 +1,78 @@
+raw:
+  _target_: src.config.DataConfig.RawConfig
+  base_dir: ${paths.raw_dir}
+  gdp_deflator:
+    file: gdp_deflactor_usa/gdp_deflactor_usa.csv
+    format: csv
+    frequency: annual
+  cpi:
+    file: cpi/monthly_cpi.csv
+    format: csv
+    frequency: monthly
+  gdp:
+    file: gdp/anual_gdp_by_country.csv
+    format: csv
+    frequency: annual
+  subnational_gdp_share:
+    dir: subnational_gdp_share
+    pattern: Indicador--Participacion*.csv
+    format: csv
+    frequency: annual
+  subnational_income:
+    file: subnational_income/subnational_income.xlsx
+    format: excel
+    frequency: annual
+  exchange_rate:
+    file: uy_exchange_rate/uy_exchange_rate.xlsx
+    format: excel
+    frequency: daily
+  gasoline:
+    file: gasoline/gasoline_sales.csv
+    format: csv
+    frequency: monthly
+  diesel:
+    file: diesel/diesel_sales.csv
+    format: csv
+    frequency: monthly
+  shapefile:
+    dir: uruguay_map
+    format: shapefile
+
+processed:
+  _target_: src.config.DataConfig.ProcessedConfig
+  base_dir: ${paths.processed_dir}
+  cpi:
+    file: cpi/annual_cpi_processed.csv
+    format: csv
+    frequency: annual
+  gdp:
+    file: gdp/constant_gdp_processed.csv
+    format: csv
+    frequency: annual
+  vehicle_tax:
+    file: vehicle_tax/vehicle_tax_processed.csv
+    format: csv
+    frequency: annual
+  exchange_rate:
+    file: exchange_rates/annual_rates.csv
+    format: csv
+    frequency: annual
+  gasoline:
+    file: gasoline/gasoline_sales_processed.csv
+    format: csv
+    frequency: monthly
+  diesel:
+    file: diesel/diesel_sales_processed.csv
+    format: csv
+    frequency: monthly
+  shapefile:
+    dir: uruguay_map_processed
+    format: shapefile
+  shapefile_geojson:
+    dir: uruguay_map_processed
+    format: geojson
+  subnational_gdp_share:
+    file: subnational_gdp_share/subnational_gdp_share_processed.csv
+    format: csv
+    frequency: annual
+

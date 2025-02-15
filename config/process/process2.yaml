@@ -1,0 +1,12 @@
+# Hereda de default.yaml y sobrescribe específicos
+defaults:
+  - default
+
+aggregation:
+  temporal: monthly     # Diferente frecuencia temporal
+  spatial: regional     # Diferente agregación espacial
+
+transformations:
+  prices:
+    normalize: true
+    seasonal_adjust: true  # Ajuste adicional

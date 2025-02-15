@@ -1,0 +1,11 @@
+years:
+  start: 1990
+  end: 2024
+  base_year: 2020
+  tax_war: 2001
+  policy_implementation: 2012
+
+constants:
+  inflation_base: 100
+  missing_threshold: 0.2
+  outlier_std: 3

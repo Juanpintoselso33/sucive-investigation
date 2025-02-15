@@ -1,0 +1,12 @@
+# Hereda de default.yaml y sobrescribe específicos
+defaults:
+  - default
+
+data_quality:
+  missing_threshold: 0.3  # Más permisivo
+  outlier_std: 2.5       # Más estricto
+
+transformations:
+  gdp:
+    deflate: true
+    interpolate_missing: true
