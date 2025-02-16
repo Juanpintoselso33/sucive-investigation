@@ -107,3 +107,8 @@ final:
     file: vehicle_tax/vehicle_tax_final.csv
     format: csv
     frequency: annual
+  data_panel:
+    file: data_panel/data_panel.csv
+    format: csv
+    frequency: annual
+
